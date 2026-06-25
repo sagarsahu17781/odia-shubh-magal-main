@@ -18,7 +18,12 @@ function NotFoundComponent() {
       <div className="max-w-md text-center">
         <h1 className="font-script text-7xl text-primary">404</h1>
         <p className="mt-4 text-muted-foreground">This page is not part of our album.</p>
-        <a href="/" className="mt-6 inline-block rounded-md bg-primary px-5 py-2 text-primary-foreground">Return Home</a>
+        <a
+          href="/"
+          className="mt-6 inline-block rounded-md bg-primary px-5 py-2 text-primary-foreground"
+        >
+          Return Home
+        </a>
       </div>
     </div>
   );
@@ -34,9 +39,14 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
       <div>
         <h1 className="font-display text-2xl text-primary">Something went wrong</h1>
         <button
-          onClick={() => { router.invalidate(); reset(); }}
+          onClick={() => {
+            router.invalidate();
+            reset();
+          }}
           className="mt-6 rounded-md bg-primary px-5 py-2 text-primary-foreground"
-        >Try again</button>
+        >
+          Try again
+        </button>
       </div>
     </div>
   );
@@ -47,11 +57,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sahil weds Payal — A Sacred Odia Wedding" },
-      { name: "description", content: "With the blessings of Lord Jagannath and our beloved families, join us as Sahil and Payal begin their sacred journey together." },
+      {
+        name: "description",
+        content:
+          "With the blessings of Lord Jagannath and our beloved families, join us as Sahil and Payal begin their sacred journey together.",
+      },
       { name: "author", content: "Sahil & Payal" },
       { property: "og:title", content: "Sahil weds Payal — A Sacred Odia Wedding" },
-      { property: "og:description", content: "A luxurious Odia wedding invitation. Join us to bless our union." },
+      {
+        property: "og:description",
+        content: "A luxurious Odia wedding invitation. Join us to bless our union.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -74,8 +90,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <head><HeadContent /></head>
-      <body>{children}<Scripts /></body>
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        {children}
+        <Scripts />
+      </body>
     </html>
   );
 }
